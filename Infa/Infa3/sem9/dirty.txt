@@ -1,0 +1,14 @@
+CUP:0.3
+MUG:0.4
+cup:0.5
+plate:1
+pan:2
+table:4
+bottle:1.5
+glass:0.5
+glass:0.5
+glass:0.5
+glass:0.5
+glass:0.5
+glass:0.5
+Good job!

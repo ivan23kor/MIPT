@@ -1,0 +1,85 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <assert.h>
+#include <string.h>
+#define MAX 80 //maximum number of elements in each string
+
+void string_swap (char *text1, char *text2);
+void text_sort (char **text, int strings);
+
+int main ()
+{
+    FILE *input, *output;
+    char **text;
+    char buffer[MAX];
+    int strings = 0;
+    int i = 0;
+
+    assert (input = fopen ("input.txt", "r"));
+
+    while (fgets (buffer, MAX, input) != NULL)
+        strings++;
+
+    assert (text = (char **) calloc (strings, sizeof (char *)));
+
+    for (i; i < strings; i++)
+        assert (text[i] = (char *) calloc (MAX, sizeof (char)));
+
+    fseek (input, 0, SEEK_SET);
+
+    i = 0;
+    while (fgets (text[i++], MAX, input) != NULL);
+
+    fclose (input);
+
+    //text_sort (text, strings);
+
+    printf ("%d", stricmp (text[0], text[1]));
+    printf ("%d", stricmp (text[1], text[2]));
+    printf ("%d", stricmp (text[0], text[2]));
+
+    //if (stricmp (text[0], text[1]) > 0 )
+        printf ("%s %s", text[0], text[1]);
+        string_swap (text[0], text[1]);
+        printf ("%s %s", text[0], text[1]);
+    //if (stricmp (text[1], text[2]) > 0)
+        string_swap (text[1], text[2]);
+    //if (stricmp (text[0], text[1]) > 0)
+        string_swap (text[0], text[1]);
+
+    output = fopen ("output.txt", "wa");
+
+    for (i = 0; i < strings; i++)
+        fputs (text[i], output);
+
+    printf ("The sorted strings are in the output.txt.\n");
+
+    fclose (output);
+
+    return 0;
+}
+
+
+void text_sort (char **text, int strings)
+{
+    for (int i = strings - 1; i > 0; i--)
+        for (int j = 0; j < i; j++)
+            if (stricmp (text[j], text[j + 1]) > 0)
+            {
+                printf ("%s%s\n", text[j], text[j + 1]);
+                string_swap (text[j], text[j + 1]);
+            }
+            else printf ("not\n");
+}
+
+void string_swap (char *text1, char *text2)
+{
+    char *temp = (char *) calloc (MAX, sizeof (char));
+
+    for (int i = 0; (text1[i] != '\0'); i++)
+        temp[i] = text1[i];
+    for (int i = 0; (text1[i] != '\0'); i++)
+    text1 = text2;
+    text2 = temp;
+}
+

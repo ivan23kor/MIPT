@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int main (void)
+{
+    FILE *file;
+    int c = 0;
+    char * str;
+
+    file = fopen ("input.txt", "w");
+
+    c = fseek (file, 5, 5);
+    
+    while (! feof (file))
+    {
+        fgets (str, 10, file);
+    
+    
+    fclose (file);
+
+    printf ("%d", c);
+
+    return 0;
+}

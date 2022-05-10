@@ -1,0 +1,21 @@
+{
+	"firstTeam": "Chicago Bulls",
+	"secondTeam": "Boston Celtics",
+
+	"statistics":
+	{
+		"firstScore": 97,
+		"secondScore": 108,
+		"FG1": 38,
+		"FG2": 43,
+		"3PT1": 5,
+		"3PT2": 8
+	},
+
+	"place":
+	{
+		"state": "MA",
+		"city": "Boston",
+		"arena": "TD Garden"
+	}
+}

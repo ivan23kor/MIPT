@@ -1,0 +1,4 @@
+push 5
+push 17
+push 18
+puh 16

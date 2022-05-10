@@ -1,0 +1,12 @@
+push 9
+pop ax
+push ax
+factorial:
+dec ax
+je ax out
+push ax
+mul
+jne ax factorial
+out:
+print
+end

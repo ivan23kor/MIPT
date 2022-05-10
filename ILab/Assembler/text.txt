@@ -1,0 +1,14 @@
+push 8
+pop ax
+push ax
+factorial:
+dec ax
+cmp ax 0
+je out
+push ax
+mul
+cmp ax 0
+jne factorial
+out:
+print
+end

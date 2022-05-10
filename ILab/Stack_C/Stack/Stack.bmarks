@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<BrowseTracker_layout_file>
+	<ActiveTarget name="Debug" />
+	<File name="stack.h" open="1" top="0" tabpos="4">
+		<Cursor position="380" topLine="0" />
+		<BrowseMarks positions="" />
+		<Book_Marks positions="" />
+	</File>
+	<File name="stack.c" open="1" top="0" tabpos="3">
+		<Cursor position="885" topLine="0" />
+		<BrowseMarks positions="" />
+		<Book_Marks positions="" />
+	</File>
+	<File name="main.c" open="0" top="0" tabpos="1">
+		<Cursor position="1402" topLine="0" />
+	</File>
+</BrowseTracker_layout_file>

@@ -1,0 +1,6 @@
+export ABBYY_APPID="GetEasy10"
+export ABBYY_PWD="RhYJ6AH4w9nZzgtz4B+WTk3m"
+#export ABBYY_APPID="GetEasy11"
+#export ABBYY_PWD="bXQdRN4Z7fvpTz/dm2QiHeO+"
+python -B main.py
+

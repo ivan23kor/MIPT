@@ -1,0 +1,12 @@
+PUSH 8.0
+POP ax
+PUSH ax
+DEC ax
+CMP ax 0.0
+JE ip = 21
+PUSH ax
+MUL
+CMP ax 0.0
+JNE ip = 6
+PRINT
+END

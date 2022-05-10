@@ -1,0 +1,6 @@
+CMD_DEF (PUSH, 1, {stack_push ()})
+CMD_DEF (POP, 1, {stack_pop ()})
+CMD_DEF (ADD, 1, {stack_pop ()})
+CMD_DEF (SUB, 1, { ()})
+CMD_DEF (MUL, 1, {})
+CMD_DEF (DIV, 1, { ()})
