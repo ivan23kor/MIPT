@@ -5,6 +5,8 @@ import re
 import smtplib
 import sys
 import time
+import uuid
+from pathlib import Path
 
 from email.mime.application import MIMEApplication
 from email.mime.multipart import MIMEMultipart
@@ -55,15 +57,21 @@ def save_attachment(msg, email_addr, download_folder='media'):
         if part.get('Content-Disposition') is None:
             continue
 
-        filename = email_addr + '.' + part.get_filename().split('.')[-1]
-        att_path = os.path.join(os.getcwd(), download_folder, filename)
-
-        if not os.path.isfile(att_path):
-            file = open(att_path, 'wb')
-            file.write(part.get_payload(decode=True))
-            file.close()
-        else:
-            print('File {0} already exists'.format(att_path))
+        original_name = part.get_filename()
+        if not original_name:
+            continue
+        extension = Path(original_name).suffix.lower()
+        if extension not in {'.pdf', '.png', '.jpg', '.jpeg', '.bmp', '.tif', '.tiff'}:
+            continue
+        payload = part.get_payload(decode=True)
+        if not payload or len(payload) > 20 * 1024 * 1024:
+            continue
+        folder = Path(download_folder).resolve()
+        folder.mkdir(parents=True, exist_ok=True)
+        filename = uuid.uuid4().hex + extension
+        att_path = str(folder / filename)
+        with open(att_path, 'xb') as file:
+            file.write(payload)
         break
 
     return att_path

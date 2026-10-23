@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 import os
 import re
+import subprocess
+import sys
 
 
 def initial_parsing(image):
     text = image[:-3] + 'txt'
-    # os.system('cp ../Test_photos/second_eng.txt {1}'.format(image, text))
     exe = os.path.join(os.getcwd(), 'parser/process.py')
-    os.system('python {exe} \"{image}\" \"{text}\"'.format(exe=exe, image=image,
-                                                           text=text))
+    subprocess.run([sys.executable, exe, image, text], check=True)
 
     return text
 

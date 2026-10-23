@@ -1,6 +1,7 @@
 import cv2 as cv
 import numpy as np
-import os
+from pathlib import Path
+import subprocess
 from matplotlib import pyplot as plt
 
 
@@ -15,10 +16,12 @@ def improve(image_filename):
 
 def preprocess(image_filename):
     if image_filename[-3:] == 'pdf':
-        os.system('pdftoppm {0} {1} -jpeg'.format(image_filename,
-                                                  image_filename[:-4]))
-        image_filename = image_filename[:-3] + 'jpeg'
-        os.system('mv {0} {1}'.format(image_filename[:-5] + '-1.jpg',
-                                      image_filename))
+        source = Path(image_filename).resolve()
+        prefix = source.with_suffix('')
+        subprocess.run(
+            ['pdftoppm', '-f', '1', '-singlefile', '-jpeg', str(source), str(prefix)],
+            check=True,
+        )
+        Path(str(prefix) + '.jpg').replace(source.with_suffix('.jpeg'))
 
     # improve(image_filename)
